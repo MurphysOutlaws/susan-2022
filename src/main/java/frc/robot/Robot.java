@@ -14,34 +14,10 @@ import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
-//import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
-//import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-//import frc.robot.autocommands.NothingTest;
 import frc.robot.commands.TankDrive;
-/*import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commands.TankDrive;
-import frc.robot.subsystems.ConveyorMotors;
 import frc.robot.subsystems.DriveTrain;
-import frc.robot.subsystems.Hook;*/
-/*import frc.robot.autocommands.GTFO;
-import frc.robot.autocommands.firstPlanAutoMiddle;
-import frc.robot.autocommands.leftStartAutoMiddle;
-import frc.robot.autocommands.middleStartAutoMiddle;
-import frc.robot.subsystems.ControlSpinner;
-import frc.robot.subsystems.ConveyorMotors;*/
-import frc.robot.subsystems.DriveTrain;
-//import frc.robot.subsystems.Flap;
-//import frc.robot.subsystems.Hook;
-//import frc.robot.subsystems.Limelight;
-
-//susan
-// import frc.robot.subsystems.Launcher;
-// import frc.robot.subsystems.Slowmotor;
-
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -86,9 +62,6 @@ public class Robot extends TimedRobot {
 
   //creates instaances of all the important subsystems so we can use their methods and run things later
   private RobotContainer m_robotContainer;
-  //public Hook m_hook = new Hook();
-  //public ControlSpinner m_controlspinner = new ControlSpinner();
-  //public Limelight m_limelight = new Limelight();
   
 
   @Override

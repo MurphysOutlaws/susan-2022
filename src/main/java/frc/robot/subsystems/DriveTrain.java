@@ -26,42 +26,19 @@ public class DriveTrain extends SubsystemBase {
   private final CANSparkMax right_back = new CANSparkMax(RobotMap.right_back_motor, MotorType.kBrushless);
   private final CANSparkMax left_back = new CANSparkMax(RobotMap.left_back_motor, MotorType.kBrushless);
 
-  // private final CANEncoder rightCanEncoder = new CANEncoder(right_front);
-  // private final CANEncoder rightBackEncoder = new CANEncoder(right_back);
-  // private final CANEncoder leftCanEncoder = new CANEncoder(left_front);
-  // private final CANEncoder leftBackEncoder = new CANEncoder(left_back);
-
   //variables for each encoder
   private RelativeEncoder m_rightencoder = right_front.getEncoder();
   private RelativeEncoder m_leftencoder = left_front.getEncoder();
   private RelativeEncoder m_rightback = right_back.getEncoder();
   private RelativeEncoder m_leftback = left_back.getEncoder();
 
-  //makes new pidgeon (gyro) connected to the conveyor talon (since that's where ours is)
-  //public static PigeonIMU gyro = new PigeonIMU(ConveyorMotors.getTalon());
-
   public static AnalogInput sonar = new AnalogInput(0);
-  
-
-  // Talon code for testing on Miles 
-  /*public static WPI_TalonSRX right_front = new WPI_TalonSRX(RobotMap.right_front_motor);
-  public static WPI_TalonSRX left_front = new WPI_TalonSRX(RobotMap.left_front_motor);
-  public static WPI_TalonSRX right_back = new WPI_TalonSRX(RobotMap.right_back_motor);
-  public static WPI_TalonSRX left_back = new WPI_TalonSRX(RobotMap.left_back_motor);*/
-
-    
+ 
     public DriveTrain() {
-      //right_front.setIdleMode(IdleMode.kBrake);
-      //left_front.setIdleMode(IdleMode.kBrake);
-      //right_back.setIdleMode(IdleMode.kBrake);
-      //left_back.setIdleMode(IdleMode.kBrake);
-
       //when a new drivetrain is created the gyro fused heading is set to 0, encoders are reset
       //and... whatever enterCalibrationMode does
       resetEncoders();
       resetGyro();
-      //gyro.enterCalibrationMode(CalibrationMode.BootTareGyroAccel);
-    
     }
 
   //when called sets into brake mode, resets encoders and fused heading again
@@ -70,10 +47,7 @@ public class DriveTrain extends SubsystemBase {
     left_front.setIdleMode(IdleMode.kBrake);
     right_back.setIdleMode(IdleMode.kBrake);
     left_back.setIdleMode(IdleMode.kBrake);
-
-    //gyro.setFusedHeading(0);
     resetEncoders();
-    //gyro.enterCalibrationMode(CalibrationMode.BootTareGyroAccel);
   }
 
   //when called sets into coast mode, resets encoders and fused heading again
@@ -82,25 +56,15 @@ public class DriveTrain extends SubsystemBase {
     left_front.setIdleMode(IdleMode.kCoast);
     right_back.setIdleMode(IdleMode.kCoast);
     left_back.setIdleMode(IdleMode.kCoast);
-
-    //gyro.setFusedHeading(0);
     resetEncoders();
-    //gyro.enterCalibrationMode(CalibrationMode.BootTareGyroAccel);
   }
    
-    // sets wheelspeeds of motors 
-//
+  // sets wheelspeeds of motors 
   public void Wheelspeed(double leftspeed, double rightspeed){  
     right_front.set(rightspeed);
     left_front.set(-leftspeed);
     right_back.set(rightspeed);
     left_back.set(-leftspeed);
-    
-    //Talon code for testing on Miles
-    /*right_front.set(ControlMode.PercentOutput, rightspeed);
-    left_front.set(ControlMode.PercentOutput, leftspeed);
-    right_back.set(ControlMode.PercentOutput, rightspeed);
-    left_back.set(ControlMode.PercentOutput, leftspeed);*/
   }
   
   //sets all encoders to 0
@@ -112,13 +76,6 @@ public class DriveTrain extends SubsystemBase {
 
   }
   
-  //returns... the angle the gyro/robot is facing?
-  //public double getFacingAngle(){
-    //PigeonIMU.FusionStatus fusionStatus = new PigeonIMU.FusionStatus();
-    //why do we put in fusionStatus and not just null? do we do something with it? I don't think we do
-    //return gyro.getFusedHeading(fusionStatus);
-  //}
-
   //returns encoder positions
   public double getLeftCanEncoder(){
      return m_leftencoder.getPosition();
@@ -139,16 +96,6 @@ public class DriveTrain extends SubsystemBase {
     //gyro.setYaw(0);
   }
 
-  // public double getFinalAngle(){
-  //   double angleAt = getFacingAngle();
-  //   double finalAngle;
-  //   if (angleAt < 0){
-  //     finalAngle = Math.abs(angleAt)%360;
-  //   }else{
-  //     finalAngle = -(angleAt%360);
-  //   }
-  //   return finalAngle;
-  // }
 
   //updates smartdashboard values, does this periodically
   public void update(){
@@ -156,11 +103,8 @@ public class DriveTrain extends SubsystemBase {
     SmartDashboard.putNumber("Right Encoder", m_rightencoder.getPosition());
     SmartDashboard.putNumber("Right Back Encoder", m_rightback.getPosition());
     SmartDashboard.putNumber("Left Back Encoder", m_leftback.getPosition());
-    //SmartDashboard.putNumber("Angle", getFacingAngle());
     SmartDashboard.putNumber("Right Joystick Y", RobotContainer.driveCont.getRawAxis(5));
     SmartDashboard.putNumber("Left Joystick Y", RobotContainer.driveCont.getRawAxis(1));
-    ///SmartDashboard.putNumber("Right Joystick Y", RobotContainer.auxCont.getRawAxis(5));
-    //SmartDashboard.putNumber("Left Joystick Y", RobotContainer.auxCont.getRawAxis(1));
     SmartDashboard.putNumber("Trigger", RobotContainer.driveCont.getRawAxis(3));
   }
   

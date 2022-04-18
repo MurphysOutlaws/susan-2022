@@ -9,7 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
-import frc.robot.Global;
+import frc.robot.Constants;
 //import frc.robot.Robot;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.DriveTrain;
@@ -60,13 +60,13 @@ public class TankDrive extends CommandBase {
 
     double fastValue = (RobotContainer.driveCont.getRawAxis(Constants.GO_FAST_AXIS) / 2);
 
-    if (Math.abs(amountGoR) >= Global.DEADZONE) {
+    if (Math.abs(amountGoR) >= Constants.DEADZONE) {
       rightGo = amountGoR;
     } else {
       rightGo = 0.0005;
     }
 
-    if (Math.abs(amountGoL) >= Global.DEADZONE) {
+    if (Math.abs(amountGoL) >= Constants.DEADZONE) {
       leftGo = amountGoL;
     } else {
       leftGo = 0.0005;
