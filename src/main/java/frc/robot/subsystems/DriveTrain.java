@@ -7,15 +7,12 @@
 
 package frc.robot.subsystems;
 
-//import com.ctre.phoenix.motorcontrol.ControlMode;
-//import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.AnalogInput;
-//import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotContainer;
@@ -35,10 +32,10 @@ public class DriveTrain extends SubsystemBase {
   // private final CANEncoder leftBackEncoder = new CANEncoder(left_back);
 
   //variables for each encoder
-  private CANEncoder m_rightencoder = right_front.getEncoder();
-  private CANEncoder m_leftencoder = left_front.getEncoder();
-  private CANEncoder m_rightback = right_back.getEncoder();
-  private CANEncoder m_leftback = left_back.getEncoder();
+  private RelativeEncoder m_rightencoder = right_front.getEncoder();
+  private RelativeEncoder m_leftencoder = left_front.getEncoder();
+  private RelativeEncoder m_rightback = right_back.getEncoder();
+  private RelativeEncoder m_leftback = left_back.getEncoder();
 
   //makes new pidgeon (gyro) connected to the conveyor talon (since that's where ours is)
   //public static PigeonIMU gyro = new PigeonIMU(ConveyorMotors.getTalon());

@@ -56,7 +56,7 @@ import frc.robot.subsystems.DriveTrain;
 //import frc.robot.subsystems.RelayCompressor;
 import frc.robot.subsystems.Loader;
 import frc.robot.subsystems.Shooter;
-import frc.robot.subsystems.Slowmotor;
+
 
 // import frc.robot.subsystems.Launcher;
 // import frc.robot.subsystems.Slowmotor;
@@ -144,8 +144,8 @@ public class RobotContainer {
   public static Button buttonB = new JoystickButton(driveCont, Global.BUTTON_B);
   public static Button buttonX = new JoystickButton(driveCont, Global.BUTTON_X);
   public static Button start = new JoystickButton(auxCont, Global.START);
-  public static JoystickAnalogButton rightTrigger = new JoystickAnalogButton(driveCont, 3, Global.THRESHOLD);
-  public static JoystickAnalogButton leftTrigger = new JoystickAnalogButton(driveCont, 2, Global.THRESHOLD);
+  public static JoystickButton rightTrigger = new JoystickButton(driveCont, 3);
+  public static JoystickButton leftTrigger = new JoystickButton(driveCont, 2);
 
   public RobotContainer () {
     this.configureButtonBindings(); //connects the buttons to the commands so they know when to run
